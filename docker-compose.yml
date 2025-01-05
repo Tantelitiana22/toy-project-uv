@@ -18,11 +18,13 @@ services:
 
   api:
     container_name: api
-    image: appli
+    build:
+      context: .
+      dockerfile: Dockerfile
     environment:
       DATABASE_URL: ${DATABASE_URL}
     ports:
-      - "8000:8000"
+      - "2020:2020"
     networks:
       - postgres
     depends_on:
