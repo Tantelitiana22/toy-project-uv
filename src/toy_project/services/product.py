@@ -25,7 +25,7 @@ async def create_product(product: ProductInput,
     return await product_controller.register_product(product.model_dump())
 
 
-@product_router.delete("/products/{product_id}", status_code=status.HTTP_200_OK, tags=["delete_product"])
+@product_router.delete("/products/{product_id}", status_code=status.HTTP_200_OK)
 async def delete_product(product_id: int, product_controller: ProductController = Depends(get_product_controller)):
     return await product_controller.delete_product_by_id(product_id)
 

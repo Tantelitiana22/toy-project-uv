@@ -35,6 +35,7 @@ async def test_get_product(async_client: AsyncClient, base_rout_path: str):
     assert data["price"] == 10.45
     assert data["description"] == "test"
 
+
 @pytest.mark.asyncio
 async def test_exception_get_product(async_client: AsyncClient, base_rout_path: str):
     # GIVEN
