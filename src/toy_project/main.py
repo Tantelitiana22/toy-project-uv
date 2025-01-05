@@ -4,7 +4,7 @@ from fastapi import FastAPI
 from sqlmodel import SQLModel
 
 from toy_project.db import async_engine
-from toy_project.services.product import router
+from toy_project.routers.routers import main_router
 
 
 @asynccontextmanager
@@ -17,7 +17,7 @@ async def life_span(_: FastAPI):
 
 app = FastAPI(title="Product Management", lifespan=life_span)
 
-app.include_router(router)
+app.include_router(main_router)
 
 
 @app.get("/")

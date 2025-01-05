@@ -17,6 +17,11 @@ async_engine = create_async_engine(
 )
 
 
+
+@pytest.fixture(scope="session")
+def base_rout_path():
+    return "/api/v1"
+
 async def get_async_session_override():
     async with AsyncSession(async_engine) as session:
         yield session
